@@ -1,0 +1,6 @@
+create table Subject(Subj_ID int AUTOINCREMENT,Subject varchar(45), Sem int,File_Link varchar(1000),Capacity int,Teacher varchar(50)),primary key(Subj_ID);
+
+create table STUD(Roll_number int, Name varchar(45), u_name varchar(20),pwd varchar(32), primary key(Roll_number));
+
+create table AC(Roll_number int, pref_1 int,pref_2 int, pref_3 int, pref_4 int, pref_5 int, foreign key(Roll_number) references STUD(roll_number),foreign key(pref_1) references Subject(Subj_ID),foreign key(pref_2) references Subject(Subj_ID),foreign key(pref_3) references Subject(Subj_ID),foreign key(pref_4) references Subject(Subj_ID),foreign key(pref_5) references Subject(Subj_ID),primary key(Roll_number));
+
