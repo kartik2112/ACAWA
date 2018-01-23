@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImpDates>
 
-	<DeadlineBeginDate>2016-10-02</DeadlineBeginDate>
+	<DeadlineBeginDate>2018-01-23</DeadlineBeginDate>
 
-	<DeadlineEndDate>2016-10-04</DeadlineEndDate>
+	<DeadlineEndDate>2018-01-26</DeadlineEndDate>
 
 	<Key>4d06aee7b69a3ab8d6cc3d5db6dfadb5</Key>
 
-	<DateModified>2016-10-07</DateModified>
+	<DateModified>2018-01-23</DateModified>
 
 	<SortingDate>2016-10-07</SortingDate>
 
-	<SortingPerformed>TRUE</SortingPerformed>
+	<SortingPerformed>FALSE</SortingPerformed>
 
 </ImpDates>

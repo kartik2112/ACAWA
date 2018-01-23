@@ -1,22 +1,22 @@
 <?php
 $servername="localhost";
 $username="root";
-//$password="kkksss333";
-$password="kjsce";
-$dbname="dbACAWAR"; 
-//$dbname="dbACAWA";
-/*$conn=mysqli_connect($servername,$username,$password);
-if(mysqli_connect_error()){
-   die("Error connecting server");
-}
-$sql="create database ".$dbname;
-if(mysqli_query($conn,$sql)){
-   echo "Database creation successful<br/>";
+$password="kkksss333";
 
-}
-else{
-   die("Error creating database. ".mysqli_error($conn));
-}*/
+$dbname="dbACAWA"; 
+
+// $conn=mysqli_connect($servername,$username,$password);
+// if(mysqli_connect_error()){
+//    die("Error connecting server");
+// }
+// $sql="create database ".$dbname;
+// if(mysqli_query($conn,$sql)){
+//    echo "Database creation successful<br/>";
+
+// }
+// else{
+//    die("Error creating database. ".mysqli_error($conn));
+// }
 
 require "CommonFiles/connection.php";
 require "CommonFiles/CommonConstants.php";
