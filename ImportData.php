@@ -5,8 +5,8 @@ if(!isset($_SESSION['userid']) || !isset($_SESSION['Alogin']) ){
     header("location: login.php");
 }
 
-require "CommonFiles/connection.php";
-require "CommonFiles/CommonConstants.php";
+require_once "CommonFiles/connection.php";
+require_once "CommonFiles/CommonConstants.php";
 
 $uploadFlagCourses=FALSE;
 $uploadFlagUsers=FALSE;

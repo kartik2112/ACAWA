@@ -1,5 +1,5 @@
 <?php
-    $romanArray=['I','II','III','IV','V','VI','VII','VIII'];
+    $romanArray = ['I','II','III','IV','V','VI','VII','VIII'];
     session_start();
     if(!isset($_SESSION['userid']) || !isset($_SESSION['Alogin']) ){
         header("location: login.php");

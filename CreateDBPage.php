@@ -5,18 +5,18 @@ $password="kkksss333";
 
 $dbname="dbACAWA"; 
 
-// $conn=mysqli_connect($servername,$username,$password);
-// if(mysqli_connect_error()){
-//    die("Error connecting server");
-// }
-// $sql="create database ".$dbname;
-// if(mysqli_query($conn,$sql)){
-//    echo "Database creation successful<br/>";
+$conn=mysqli_connect($servername,$username,$password);
+if(mysqli_connect_error()){
+   die("Error connecting server");
+}
+$sql="create database ".$dbname;
+if(mysqli_query($conn,$sql)){
+   echo "Database creation successful<br/>";
 
-// }
-// else{
-//    die("Error creating database. ".mysqli_error($conn));
-// }
+}
+else{
+   die("Error creating database. ".mysqli_error($conn));
+}
 
 require "CommonFiles/connection.php";
 require "CommonFiles/CommonConstants.php";
