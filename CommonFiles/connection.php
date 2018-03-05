@@ -1,7 +1,7 @@
 <?php
 $servername="localhost";
 $username="root";
-$password="kkksss333";
+$password="";
 //$password="kjsce";
 $dbname="dbACAWA";
 //$dbname="dbACAWAR"; 

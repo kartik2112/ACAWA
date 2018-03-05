@@ -27,6 +27,9 @@
     if($choiceFillingStarted==TRUE && $choiceFillingOver==FALSE){
         $canFillChoices=TRUE;
     }
+    else{
+        $canFillChoices=FALSE;
+    }
 
     $sqluser="select Roll_number,Semester,Name from User where u_name='".$_SESSION['userid']."'";
     $resultuser=mysqli_query($conn,$sqluser);

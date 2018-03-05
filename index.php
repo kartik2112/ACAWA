@@ -31,7 +31,7 @@
     $sql = " SELECT * FROM User WHERE u_name = '".$_SESSION['userid']."'";    
     $result = mysqli_fetch_array(mysqli_query($conn,$sql));
 
-    $sqlCheckChoicesSubmittedIndex="select * from AC".$rowUser['Semester']." where Roll_number=".$rowUser['Roll_number'];
+    $sqlCheckChoicesSubmittedIndex="select * from AC".$result['Semester']." where Roll_number=".$result['Roll_number'];
     $resultCheckChoicesSubmittedIndex=mysqli_query($conn,$sqlCheckChoicesSubmittedIndex);
 
     if(mysqli_num_rows($resultCheckChoicesSubmittedIndex)==0){
