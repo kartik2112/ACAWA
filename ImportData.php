@@ -7,6 +7,7 @@ if(!isset($_SESSION['userid']) || !isset($_SESSION['Alogin']) ){
 
 require_once "CommonFiles/connection.php";
 require_once "CommonFiles/CommonConstants.php";
+require_once "CommonFiles/ImpDatesXMLData.php";
 
 $uploadFlagCourses=FALSE;
 $uploadFlagUsers=FALSE;

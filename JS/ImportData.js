@@ -46,7 +46,7 @@ function startCoursesUpload() {
         $.ajax({
             url: "Ajax/ImportCourseData.php",
             type: "post",
-            data: { 'CourseData': CoursesToBeAdded[i] }            
+            data: { 'CourseData': CoursesToBeAdded[i], 'RowNo': i }            
         });
     }
     $('html, body').animate({
@@ -82,7 +82,7 @@ function startUsersUpload() {
         $.ajax({
             url: "Ajax/ImportUsersData.php",
             type: "post",
-            data: { 'UserData': UsersToBeAdded[i] }            
+            data: { 'UserData': UsersToBeAdded[i], 'RowNo': i }            
         });
     }
     $('html, body').animate({
@@ -97,8 +97,10 @@ function startUsersUpload() {
 $(document).ready(function () {
     $(document).ajaxSuccess(function (event, xhr, options) {
         
+        let responseJSON = JSON.parse(xhr.responseText);
         //alert(xhr.responseText);
-        if (xhr.responseText.indexOf("CourseSuccess") != -1) {
+        // if (xhr.responseText.indexOf("CourseSuccess") != -1) {
+        if ( responseJSON.status == "CourseSuccess" ) {
             successCoursesCount++;
             totalCoursesHandled++;
             $("#CourseProgressBar").animate({ width: (successCoursesCount+alreadyExistsCoursesCount) / noOfCourses * 100 + "%" }, 1000 / noOfCourses, function () {
@@ -106,24 +108,28 @@ $(document).ready(function () {
             });
             $("#CoursesAddSuccessNo").text(successCoursesCount);
         }
-        else if (xhr.responseText.indexOf("CourseError") != -1) {
+        // else if (xhr.responseText.indexOf("CourseError") != -1) {
+        else if ( responseJSON.status == "CourseError" ) {
             errorCoursesCount++;
             totalCoursesHandled++;
             $("#CoursesFailNo").text(errorCoursesCount);
-            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + xhr.responseText.substring(11));
+            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + responseJSON.errorDescription);
         }
-        else if (xhr.responseText.indexOf("CourseAlreadyExisting") != -1) {
+        // else if (xhr.responseText.indexOf("CourseAlreadyExisting") != -1) {
+        else if ( responseJSON.status == "CourseAlreadyExisting" ) {
             alreadyExistsCoursesCount++;
             totalCoursesHandled++;            
             $("#CourseProgressBar").animate({ width: (successCoursesCount+alreadyExistsCoursesCount) / noOfCourses * 100 + "%" }, 1000 / noOfCourses, function () {
                 $("#CoursesProgressBarStatusValue").text(((successCoursesCount+alreadyExistsCoursesCount) / noOfCourses * 100).toFixed(2) + "%");
             });
             $("#CoursesAlreadyExistsNo").text(alreadyExistsCoursesCount);
-            //$("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + xhr.responseText.substring(21));
+            // $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + xhr.responseText.substring(21));
+            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + responseJSON.errorDescription);
         }
 
 
-        else if (xhr.responseText.indexOf("UserSuccess") != -1) {
+        // else if (xhr.responseText.indexOf("UserSuccess") != -1) {
+        else if ( responseJSON.status == "UserSuccess" ) {
             successUsersCount++;
             totalUsersHandled++;
             $("#UsersProgressBar").animate({ width: (successUsersCount+alreadyExistsUsersCount) / noOfUsers * 100 + "%" }, 1000 / noOfUsers, function () {
@@ -131,13 +137,16 @@ $(document).ready(function () {
             });
             $("#UsersAddSuccessNo").text(successUsersCount);
         }
-        else if (xhr.responseText.indexOf("UserError") != -1) {
+        // else if (xhr.responseText.indexOf("UserError") != -1) {
+        else if ( responseJSON.status == "UserError" ) {
             errorUsersCount++;
             totalUsersHandled++;
             $("#UsersFailNo").text(errorUsersCount);
-            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + xhr.responseText.substring(9));
+            // $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + xhr.responseText.substring(9));
+            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + responseJSON.errorDescription);
         }
-        else if (xhr.responseText.indexOf("UserAlreadyExisting") != -1) {
+        // else if (xhr.responseText.indexOf("UserAlreadyExisting") != -1) {
+        else if ( responseJSON.status == "UserAlreadyExisting" ) {
             alreadyExistsUsersCount++;
             totalUsersHandled++;
             $("#UsersProgressBar").animate({ width: (successUsersCount+alreadyExistsUsersCount) / noOfUsers * 100 + "%" }, 1000 / noOfUsers, function () {
@@ -145,6 +154,7 @@ $(document).ready(function () {
             });
             $("#UsersAlreadyExistsNo").text(alreadyExistsUsersCount);
             //$("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + xhr.responseText.substring(19));
+            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + responseJSON.errorDescription);
         }
         
         if (coursesUploadCompletedFlag==false && totalCoursesHandled >= noOfCourses) {

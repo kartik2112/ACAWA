@@ -3,6 +3,8 @@
 //$receiverNameInMail  - Name of receiver of mail
 //$insertDateInMail - Date to be inserted in corresponding template
 //$PostScriptInMail - Any additional comments put by admin in mail before sending
+$receiverNameInMail = 'Test';
+$PostScriptInMail = 'Test'; 
 
 
 $templateBody['Phase1Temp1']=       '<p>The link is now open to check out the audit course details for your semester.</p>'.

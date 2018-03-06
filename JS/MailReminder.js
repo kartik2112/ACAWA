@@ -75,8 +75,11 @@ $(document).ready(function () {
 
 
     $(document).ajaxSuccess(function (event, xhr, options) {
-        var templateNo = xhr.responseText.substring(0, 11);
-        if (xhr.responseText.indexOf("RemindedAlready") != -1) {
+        let responseJSON = JSON.parse(xhr.responseText);
+        // var templateNo = xhr.responseText.substring(0, 11);
+        var templateNo = responseJSON.templateID;
+        // if (xhr.responseText.indexOf("RemindedAlready") != -1) {
+        if ( responseJSON.status == "RemindedAlready" ) {
             window[templateNo + 'totalUsersCount']++;
 
             window[templateNo + 'alreadyRemindedCount']++;
@@ -87,7 +90,8 @@ $(document).ready(function () {
                 $("#ProgressBarStatusValue" + templateNo).text(((window[templateNo + 'successCount'] + window[templateNo + 'alreadyRemindedCount']) / window[templateNo + 'totalusers'] * 100).toFixed(2) + "%");
             });
         }
-        else if (xhr.responseText.indexOf("SuccessMail") != -1) {
+        // else if (xhr.responseText.indexOf("SuccessMail") != -1) {
+        else if ( responseJSON.status == "SuccessMail" ) {
             window[templateNo + 'totalUsersCount']++;
             
             window[templateNo + 'successCount']++;
@@ -99,10 +103,11 @@ $(document).ready(function () {
             });
 
         }
-        else if (xhr.responseText.indexOf("ErrorMail") != -1) {
+        // else if (xhr.responseText.indexOf("ErrorMail") != -1) {
+        else if ( responseJSON.status == "ErrorMail" ) {
             window[templateNo + 'totalUsersCount']++;
 
-            $("#MailSendHappeningDiv" + templateNo).html(xhr.responseText.substring(0, xhr.responseText.indexOf("ErrorMail")) + $("#MailSendHappeningDiv" + templateNo).html());
+            $("#MailSendHappeningDiv" + templateNo).html( responseJSON.errorDescription + $("#MailSendHappeningDiv" + templateNo).html());
 
             window[templateNo + 'failCount']++;
 

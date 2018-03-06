@@ -22,7 +22,7 @@
     }
 
     //Read XML file containing dates of deadlines
-    $errorMessage="";
+    // $errorMessage="";
     $tempDoc = new DOMDocument();
     $tempDoc->load('ImpFiles/ImpDatesXMLData.xml');
     $tempData = $tempDoc->getElementsByTagName( "DeadlineBeginDate" );
@@ -31,36 +31,36 @@
     $endDateFetched=$tempData ->item(0)->nodeValue;
     $tempData = $tempDoc->getElementsByTagName( "Key" );
     $Key=$tempData ->item(0)->nodeValue;
-    if($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['action']) ){
-        if((md5($_POST['Key'])==$Key)){
-            $_POST['DeadlineStartDate']=str_replace(",","",$_POST['DeadlineStartDate']);
-            $_POST['DeadlineEndDate']=str_replace(",","",$_POST['DeadlineEndDate']);
-            $tempStartDateFetched=date("Y-m-d",strtotime($_POST['DeadlineStartDate']));
-            $tempEndDateFetched=date("Y-m-d",strtotime($_POST['DeadlineEndDate']));
-            if($tempStartDateFetched < $tempEndDateFetched){            
-                $tempData = $tempDoc->getElementsByTagName( "DeadlineBeginDate" );
-                $tempData ->item(0)->nodeValue=$tempStartDateFetched;
-                $tempData = $tempDoc->getElementsByTagName( "DeadlineEndDate" );
-                $tempData ->item(0)->nodeValue=$tempEndDateFetched;
-                $tempData = $tempDoc->getElementsByTagName( "DateModified" );
-                $tempData ->item(0)->nodeValue=date("Y-m-d");
-                $tempData = $tempDoc->getElementsByTagName( "SortingPerformed" );
-                $tempData ->item(0)->nodeValue="FALSE";
-                $tempDoc->save('ImpFiles/ImpDatesXMLData.xml');
-                $tempData = $tempDoc->getElementsByTagName( "DeadlineBeginDate" );
-                $startDateFetched=$tempData ->item(0)->nodeValue;
-                $tempData = $tempDoc->getElementsByTagName( "DeadlineEndDate" );
-                $endDateFetched=$tempData ->item(0)->nodeValue;
-            }
-            else{
-                $errorMessage.="Incorrect dates provided! <br/>Submission start date should be before deadline date.<seperator>";
-            }
-        }
-        else{
-            $errorMessage.="Incorrect Admin Key provided! <br/>Cannot update dates.<seperator>";
-        }
+    // if($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['action']) ){
+    //     if((md5($_POST['Key'])==$Key)){
+    //         $_POST['DeadlineStartDate']=str_replace(",","",$_POST['DeadlineStartDate']);
+    //         $_POST['DeadlineEndDate']=str_replace(",","",$_POST['DeadlineEndDate']);
+    //         $tempStartDateFetched=date("Y-m-d",strtotime($_POST['DeadlineStartDate']));
+    //         $tempEndDateFetched=date("Y-m-d",strtotime($_POST['DeadlineEndDate']));
+    //         if($tempStartDateFetched < $tempEndDateFetched){            
+    //             $tempData = $tempDoc->getElementsByTagName( "DeadlineBeginDate" );
+    //             $tempData ->item(0)->nodeValue=$tempStartDateFetched;
+    //             $tempData = $tempDoc->getElementsByTagName( "DeadlineEndDate" );
+    //             $tempData ->item(0)->nodeValue=$tempEndDateFetched;
+    //             $tempData = $tempDoc->getElementsByTagName( "DateModified" );
+    //             $tempData ->item(0)->nodeValue=date("Y-m-d");
+    //             $tempData = $tempDoc->getElementsByTagName( "SortingPerformed" );
+    //             $tempData ->item(0)->nodeValue="FALSE";
+    //             $tempDoc->save('ImpFiles/ImpDatesXMLData.xml');
+    //             $tempData = $tempDoc->getElementsByTagName( "DeadlineBeginDate" );
+    //             $startDateFetched=$tempData ->item(0)->nodeValue;
+    //             $tempData = $tempDoc->getElementsByTagName( "DeadlineEndDate" );
+    //             $endDateFetched=$tempData ->item(0)->nodeValue;
+    //         }
+    //         else{
+    //             $errorMessage.="Incorrect dates provided! <br/>Submission start date should be before deadline date.<seperator>";
+    //         }
+    //     }
+    //     else{
+    //         $errorMessage.="Incorrect Admin Key provided! <br/>Cannot update dates.<seperator>";
+    //     }
         
-    }
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -117,94 +117,48 @@
             zoom: 80%;
         }
     </style>
+
+    <script>
+
+        //Following 4 variables will be used in AdminHome.js
+        var startDateFetchedStr = '<?php echo $startDateFetched; ?>';
+        var endDateFetchedStr = '<?php echo $endDateFetched; ?>';
+        var $pickerStart,$pickerEnd;
+        
+        $(document).ready(function () {
+
+            $("#MenuAdminHomeLI").addClass("active");
+            $("#SideMenuAdminHomeLI").addClass("active");
+
+            
+            // <?php
+            //     if($errorMessage){
+            //         $splitErrorMessage=explode("<seperator>",$errorMessage);
+            //         $timerToToast=0;
+            //         foreach($splitErrorMessage as $displayErrorMessage){
+            //             if($displayErrorMessage!=""){
+            //                 echo 'window.setTimeout(function(){';
+            //                 echo        "var \$toastContent = \$('<span>$displayErrorMessage</span>');";
+            //                 echo        "Materialize.toast(\$toastContent, 7000);";
+            //                 echo '},'.($timerToToast*1000).');';
+            //             }        
+            //             $timerToToast++;                
+            //         }
+                    
+            //     }
+            // ?>
+
+            
+        });
+    </script>
+
+    <script src="JS/AdminHome.js"></script>
 </head>
 
 <body style = "">
     <?php include "CommonFiles/Menu.php"?>
     
-    <script>
-        var pickerStart,pickerEnd;
-        $(document).ready(function () {
-            //XML interaction part
-            var deadlineStartIP = $('#DeadlineStartDate').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 3 // Creates a dropdown of 15 years to control year
-            });
-            var deadlineEndIP = $('#DeadlineEndDate').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 3 // Creates a dropdown of 15 years to control year
-            });
-            pickerStart = deadlineStartIP.pickadate('picker');
-            pickerEnd = deadlineEndIP.pickadate('picker');
-
-            pickerStart.set('select', '<?php echo $startDateFetched; ?>', { format: 'yyyy-mm-dd' });
-            pickerEnd.set('select', '<?php echo $endDateFetched;; ?>', { format: 'yyyy-mm-dd' });
-            
-
-            <?php
-                if($errorMessage){
-                    $splitErrorMessage=explode("<seperator>",$errorMessage);
-                    $timerToToast=0;
-                    foreach($splitErrorMessage as $displayErrorMessage){
-                        if($displayErrorMessage!=""){
-                            echo 'window.setTimeout(function(){';
-                            echo        "var \$toastContent = \$('<span>$displayErrorMessage</span>');";
-                            echo        "Materialize.toast(\$toastContent, 7000);";
-                            echo '},'.($timerToToast*1000).');';
-                        }        
-                        $timerToToast++;                
-                    }
-                    
-                }
-            ?>
-        });
-    </script>
     
-    <script>
-        $(document).ready(function () {
-            $("#MenuAdminHomeLI").addClass("active");
-            $("#SideMenuAdminHomeLI").addClass("active");
-
-            $("#DeadlineStartDate").change(function () {
-                var startDate = new Date($("#DeadlineStartDate").val());
-                var endDate = new Date($("#DeadlineEndDate").val());
-                if (startDate >= endDate) {
-                    startDate.setDate(endDate.getDate() - 1);
-                    pickerStart.set('select', startDate.getFullYear() + '-' + (startDate.getMonth() + 1) + '-' + startDate.getDate(), { format: 'yyyy-mm-dd' });
-
-                    alert("Cannot set submission start date after deadline date!");
-                }
-                else {
-                    $("#Key").removeAttr("disabled");
-                    $("#KeyOuter").css("display", "block");
-                    $('#UpdateDate').removeClass('disabled');
-                    $('#UpdateDate').removeAttr('disabled');
-                }
-
-            });
-
-
-            $("#DeadlineEndDate").change(function () {
-                var startDate = new Date($("#DeadlineStartDate").val());
-                var endDate = new Date($("#DeadlineEndDate").val());
-                if (startDate >= endDate) {
-                    endDate.setDate(startDate.getDate() + 1);
-                    pickerEnd.set('select', endDate.getFullYear() + '-' + (endDate.getMonth() + 1) + '-' + endDate.getDate(), { format: 'yyyy-mm-dd' });
-
-                    alert("Cannot set deadline date before submission start date!");
-                }
-                else {
-                    $("#Key").removeAttr("disabled");
-                    $("#KeyOuter").css("display", "block");
-                    $('#UpdateDate').removeClass('disabled');
-                    $('#UpdateDate').removeAttr('disabled');
-                }
-
-            });
-
-        });
-        
-    </script>
     <?php
         if(strtotime($endDateFetched) > strtotime(date("Y-m-d"))){
     ?>
@@ -233,7 +187,7 @@
     <br/>
     <br/>
     <div class="row">
-        <form action="" method="post">
+        <form action="#!" method="post" onsubmit="updateDatesByAJAX(); return false;">
             <div id="Menu" style="text-align: center;" class="col s12 m5 offset-m1">                
                 <a style="margin: 15px;width: 200px;" class="waves-effect waves-light btn-large" href="ModifySubjects.php">Modify Subjects</a>                      
                 <a style="margin: 15px;width: 200px;" class="waves-effect waves-light btn-large" href="ImportData.php">Import Data</a>

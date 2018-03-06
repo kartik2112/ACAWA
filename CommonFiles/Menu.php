@@ -2,7 +2,7 @@
     // session_start();
     require_once "CommonFiles/connection.php";
     require_once "CommonFiles/CommonConstants.php";
-    require("CommonFiles/ImpDatesXMLData.php");
+    require_once "CommonFiles/ImpDatesXMLData.php";
 
     if( strtotime(date("Y-m-d")) < strtotime($startDateFetched) ){
         //Phase 1

@@ -24,13 +24,22 @@
 
     $result_users=mysqli_query($conn,$sql_users);
     if(mysqli_num_rows($result_users)==0){
-        die("Error");
+        // die("Error");
+        $returnJSON['receiverRno'] = $_POST['receiverRno'];
+        $returnJSON['status'] = 'ErrorMail';
+        $returnJSON['templateID'] = $_POST['templateID'];
+        $returnJSON['errorDescription'] = "No such user is present";
+        die(json_encode($returnJSON));
     }
 
     $row_users=mysqli_fetch_array($result_users,MYSQLI_ASSOC);
 
     if($_POST['templateID']!="Phase3Temp2" && $_POST['templateID']!="Phase3Temp3" && $_POST['templateID']!="Phase2Temp2" && strtotime($row_users['RemindedDate'])==strtotime(date("Y-m-d"))){
-        die($_POST['templateID']."RemindedAlready receiverRno:".$_POST['receiverRno']);  //." Name: ".$row_users['Name']
+        // die($_POST['templateID']."RemindedAlready receiverRno:".$_POST['receiverRno']);  //." Name: ".$row_users['Name']
+        $returnJSON['receiverRno'] = $_POST['receiverRno'];
+        $returnJSON['status'] = 'RemindedAlready';
+        $returnJSON['templateID'] = $_POST['templateID'];        
+        die(json_encode($returnJSON));
     }
 
 
@@ -67,7 +76,10 @@
     //$mailflag=mail($row_users['u_name']."@somaiya.edu",$subject[$_POST['templateID']],$template[$_POST['templateID']],$headers);
     $mailflag=TRUE;
     if($mailflag){
-        echo $_POST['templateID']."SuccessMail receiverRno:".$_POST['receiverRno'];
+        // echo $_POST['templateID']."SuccessMail receiverRno:".$_POST['receiverRno'];
+        $returnJSON['receiverRno'] = $_POST['receiverRno'];
+        $returnJSON['status'] = 'SuccessMail';
+        $returnJSON['templateID'] = $_POST['templateID'];
     }
     else{
         for($i=0;$i<RETRY_MAIL_LIMIT;$i++){
@@ -77,10 +89,17 @@
             }
         }
         if($mailflag){
-            echo $_POST['templateID']."SuccessMail receiverRno:".$_POST['receiverRno'];  //." Name: ".$row_users['Name']
+            // echo $_POST['templateID']."SuccessMail receiverRno:".$_POST['receiverRno'];  //." Name: ".$row_users['Name']
+            $returnJSON['receiverRno'] = $_POST['receiverRno'];
+            $returnJSON['status'] = 'SuccessMail';
+            $returnJSON['templateID'] = $_POST['templateID'];
         }
         else{
-            echo $_POST['templateID']."ErrorMail receiverRno:".$_POST['receiverRno'];
+            // echo $_POST['templateID']."ErrorMail receiverRno:".$_POST['receiverRno'];
+            $returnJSON['receiverRno'] = $_POST['receiverRno'];
+            $returnJSON['status'] = 'ErrorMail';
+            $returnJSON['templateID'] = $_POST['templateID'];
+            $returnJSON['errorDescription'] = "Could not connect to SMTP Server";
         }
                 
     }
@@ -89,10 +108,16 @@
     if($mailflag){
         $sql_set_remind="update User set RemindedDate='".date("Y-m-d")."' where Roll_number='".$_POST['receiverRno']."'";
         if(!mysqli_query($conn,$sql_set_remind)){
-            echo "Error while asserting user has been reminded ".mysqli_error($conn);
+            // echo "Error while asserting user has been reminded ".mysqli_error($conn);
+            $returnJSON['receiverRno'] = $_POST['receiverRno'];
+            $returnJSON['status'] = 'ErrorMail';
+            $returnJSON['templateID'] = $_POST['templateID'];
+            $returnJSON['errorDescription'] = "Error while asserting user has been reminded ".mysqli_error($conn);
         }
 
     }
+
+    echo json_encode($returnJSON);
                 
 ?>
         
