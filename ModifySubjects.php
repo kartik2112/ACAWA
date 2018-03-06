@@ -198,6 +198,11 @@
          max-height: 80%!important;
          height: 80%!important;
      }
+     @media screen and (max-width: 600px){
+        .modalFooterMedContent{
+            display:none;
+        }
+    }
 
 	</style>    
     <script src="JS/ModifySubjects.js"></script>
@@ -334,9 +339,9 @@
             </div>
             <div class="modal-footer">
                 <a id="CancelModalButton" class=" modal-action waves-effect waves-red btn-flat">Cancel</a>
-                <button class="modal-action modal-close waves-effect waves-red btn-flat" type="submit" id="DeleteModalButton" name="action" value="delete" onclick="return confirm('Are you sure about deleting this subject?');"><i class="material-icons right">delete_forever</i>Delete Subject</button>
-                <a class="modal-action waves-effect waves-orange btn-flat" id="ModifyModalButton"><i class="material-icons right">edit</i>Modify</a>
-                <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" id="SaveModalButton" name="action" style="display: none;" value="update"><i class="material-icons right">save</i>Save</button>
+                <button class="modal-action modal-close waves-effect waves-red btn-flat" type="submit" id="DeleteModalButton" name="action" value="delete" onclick="return confirm('Are you sure about deleting this subject?');"><i class="material-icons right">delete_forever</i><span class="modalFooterMedContent">Delete Subject</span></button>
+                <a class="modal-action waves-effect waves-orange btn-flat" id="ModifyModalButton"><i class="material-icons right">edit</i><span class="modalFooterMedContent">Modify</span></a>
+                <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" id="SaveModalButton" name="action" style="display: none;" value="update"><i class="material-icons right">save</i><span class="modalFooterMedContent">Save</span></button>
                 
             </div>
         </form>

@@ -38,7 +38,7 @@
     
     
 ?>
-<div class="navbar-fixed">
+<div class="navbar-fixed" style="z-index: 1000;">
     <nav>
         <div class="nav-wrapper">
             <a href="index.php" class="brand-logo" style="margin-left: 20px">Audit Course Allotment</a>

@@ -86,14 +86,14 @@
             var cardRoot = document.createElement("div");
             //cardRoot.classList = "col s12 m6";
 
-            cardRoot.innerHTML =    '<div class="row"  style="width:400px;  height:auto; float:center;>\
+            cardRoot.innerHTML =    '<div class="row"  style="width:90%;  height:auto; >\
                                         <div class="col s12 m6">\
                                         <div class="card blue-grey darken-1">\
                                             <div class="card-content white-text">\
                                             <span class="card-title">'+element.title+'</span>\
                                             </div>\
                                             <div class="card-action">\
-                                            <a href="'+element.link+'">Read Full article</a>\
+                                            <a target="_blank" href="'+element.link+'">Read Full article</a>\
                                             </div>\
                                             </div>\
                                             </div>\
@@ -103,31 +103,31 @@
     </script>
 </head>
 
-<body style = "">
+<body>
 
     <?php include "CommonFiles/Menu.php"?>
     <script>
         $(document).ready(function () {
             $("#MenuLoginLI").addClass("active");
             $("#SideMenuLoginLI").addClass("active");
+            $("#modalFP").modal({ complete: function() { $('.loginDetails').removeAttr('disabled'); $('#ForgotPswdEmail').attr('disabled','disabled'); } });
         });
     </script>
-    <div id="containerRSS" style="float:right; width:50%; height:600px;  overflow-y:scroll;"  class="row"></div>
     
-    <div class="container" style="float:left; width: 50%; ">
-		<h1 style="margin-top: 75px;">  ACCOUNT LOGIN</h1>
+    
+    <!-- <div class="" style="float:left; width: 50%; "> -->
 
-		<div>
+		<div class="row">
         
-			<form class="col s6" action="" method="post">
+			<form class="col s12 m6" action="" method="post">
+		        <h1 style="margin-top: 75px;">  ACCOUNT LOGIN</h1>
 				<div class="column" style="margin: auto;">
-					<div class="input-field col s6">
+					<div class="input-field col s12 m6">
 						<i class="material-icons prefix">account_circle</i>
 						<input id="userid" type="text" name="userid" class="loginDetails" required/>
 						<label for="userid">ID</label>
 					</div>
-					<br/>
-					<div class="input-field col s6">
+					<div class="input-field col s12 m6">
 						<i class="material-icons prefix">vpn_key</i>
 						<input id="pswrd" type="password" name="pswrd" class="loginDetails" required/>
 						<label for="pswrd">Password</label>
@@ -140,20 +140,10 @@
     
 				<br/>
 				<br/>
-                <a class="waves-effect waves-light btn modal-trigger"  href="#modalFP" onclick=" $('.loginDetails').attr('disabled','disabled'); $('#ForgotPswdEmail').removeAttr('disabled');  $('#modalFP').openModal( { complete: function() { $('.loginDetails').removeAttr('disabled'); $('#ForgotPswdEmail').attr('disabled','disabled'); } });">forgot password?
+                <a class="waves-effect waves-light btn modal-trigger"  href="#modalFP" onclick=" $('.loginDetails').attr('disabled','disabled'); $('#ForgotPswdEmail').removeAttr('disabled');  $('#modalFP').modal('open');" style="margin-bottom:50px;">forgot password?
                 </a>
 
-                    <!-- Modal Structure -->
-                    <div id="modalFP" class="modal">
-                        <div class="modal-content center-align">
-                            
-                            <form style="width: 400px;margin: 0 auto;" method="post" action=""> 
-                                <h4>ENTER YOUR EMAIL ID</h4><br>
-                                <input id="ForgotPswdEmail" type="text" name="email" style="text-align: center" required disabled>
-                                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin: auto" value="ResetPwd">SUBMIT</button>
-                            </form>
-                        </div>
-                    </div>
+                
                 <!--
                 <a href = "forgotPwdRaj.php" id="troubleLogin">
  
@@ -165,9 +155,25 @@
 				
 				
             
+                
 			</form>
-		</div>      
-	</div>
+            <div class="col s12 m6">
+                <div id="containerRSS" style="width:90%; height:80vh; overflow-y:scroll;"  class="row"></div>
+            </div>
+		</div>  
+        <!-- Modal Structure -->
+        <div id="modalFP" class="modal">
+                    <div class="modal-content center-align">
+                        
+                        <form style="margin: 0 auto;" method="post" action="" class="col s12"> 
+                            <h4>ENTER YOUR EMAIL ID</h4><br>
+                            <input id="ForgotPswdEmail" type="text" name="email" style="text-align: center" required disabled>
+                            <button class="btn waves-effect waves-light" type="submit" name="action" style="margin: auto" value="ResetPwd">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>    
+	<!-- </div> -->
+
     
     
     <?php

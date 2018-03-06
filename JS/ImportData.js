@@ -113,7 +113,7 @@ $(document).ready(function () {
             errorCoursesCount++;
             totalCoursesHandled++;
             $("#CoursesFailNo").text(errorCoursesCount);
-            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + responseJSON.errorDescription);
+            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + "Row No " + responseJSON.RowNo + " - " + responseJSON.errorDescription);
         }
         // else if (xhr.responseText.indexOf("CourseAlreadyExisting") != -1) {
         else if ( responseJSON.status == "CourseAlreadyExisting" ) {
@@ -124,7 +124,7 @@ $(document).ready(function () {
             });
             $("#CoursesAlreadyExistsNo").text(alreadyExistsCoursesCount);
             // $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + xhr.responseText.substring(21));
-            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + responseJSON.errorDescription);
+            $("#CoursesAddErrorStatus").html($("#CoursesAddErrorStatus").html() + "Row No " + responseJSON.RowNo + " - " + responseJSON.errorDescription);
         }
 
 
@@ -143,7 +143,7 @@ $(document).ready(function () {
             totalUsersHandled++;
             $("#UsersFailNo").text(errorUsersCount);
             // $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + xhr.responseText.substring(9));
-            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + responseJSON.errorDescription);
+            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + "Row No " + responseJSON.RowNo + " - " + responseJSON.errorDescription);
         }
         // else if (xhr.responseText.indexOf("UserAlreadyExisting") != -1) {
         else if ( responseJSON.status == "UserAlreadyExisting" ) {
@@ -154,7 +154,7 @@ $(document).ready(function () {
             });
             $("#UsersAlreadyExistsNo").text(alreadyExistsUsersCount);
             //$("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + xhr.responseText.substring(19));
-            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + responseJSON.errorDescription);
+            $("#UsersAddErrorStatus").html($("#UsersAddErrorStatus").html() + "Row No " + responseJSON.RowNo + " - " + responseJSON.errorDescription);
         }
         
         if (coursesUploadCompletedFlag==false && totalCoursesHandled >= noOfCourses) {
