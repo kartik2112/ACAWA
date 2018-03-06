@@ -49,9 +49,58 @@
      #troubleLogin:hover{
          color: #007ab8;
      }
-
-
 	</style>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
+            $.ajax({
+                'url':'RSS.php',
+                'type': 'GET',
+                'dataType': 'xml',
+                'success': function(xmlResponse){
+                    let items = $(xmlResponse).find("item");
+                    $(items).each(function(){                        
+                        let element =   {
+                                            title: $(this).find("title").text(),
+                                            desc: $(this).find("description").text(),
+                                            img: $(this).find("StoryImage").text(),
+                                            link: $(this).find("link").text(),
+                                            updated_Date: $(this).find("updatedAt").text()
+                                        };
+                        generateCard(element);
+                    });
+                    
+                }
+            })
+        });
+        
+        function generateCard(element){
+            var cardRoot = document.createElement("div");
+            //cardRoot.classList = "col s12 m6";
+
+            cardRoot.innerHTML =    '<div class="row"  style="width:400px;  height:auto; float:center;>\
+                                        <div class="col s12 m6">\
+                                        <div class="card blue-grey darken-1">\
+                                            <div class="card-content white-text">\
+                                            <span class="card-title">'+element.title+'</span>\
+                                            </div>\
+                                            <div class="card-action">\
+                                            <a href="'+element.link+'">Read Full article</a>\
+                                            </div>\
+                                            </div>\
+                                            </div>\
+                                        </div>';
+            document.getElementById("containerRSS").appendChild(cardRoot);
+        }
+    </script>
 </head>
 
 <body style = "">
@@ -63,13 +112,15 @@
             $("#SideMenuLoginLI").addClass("active");
         });
     </script>
-    <div class="container">
+    <div id="containerRSS" style="float:right; width:50%; height:600px;  overflow-y:scroll;"  class="row"></div>
+    
+    <div class="container" style="float:left; width: 50%; ">
 		<h1 style="margin-top: 75px;">  ACCOUNT LOGIN</h1>
 
 		<div>
         
 			<form class="col s6" action="" method="post">
-				<div class="column" style="width: 50%;margin: auto;">
+				<div class="column" style="margin: auto;">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">account_circle</i>
 						<input id="userid" type="text" name="userid" class="loginDetails" required/>
@@ -115,8 +166,10 @@
 				
             
 			</form>
-		</div>
+		</div>      
 	</div>
+    
+    
     <?php
             if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email']))
             {
@@ -161,5 +214,25 @@
             }
         ?>
 
-</body>
+        <!--
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">Javascript</a></li>
+                    <li><a href="mobile.html">Mobile</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">Javascript</a></li>
+                    <li><a href="mobile.html">Mobile</a></li>
+                </ul>
+            </div>
+        </nav>
+        -->
+    </body>
 </html>
