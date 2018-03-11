@@ -136,6 +136,7 @@
                                     echo '<li id="SideMenuImportLI"><a id="SideMenuModifySubj" class="tooltipped" data-position="right" data-delay="500" data-tooltip="Use this to import any data via excel sheet" href="ImportData.php">IMPORT DETAILS</a></li>';
                                 }
 
+                                echo '<li id="SideMenuChangePwdLI"><a id="SideMenuChangePwd" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Log out" href="ChangePasswordRaj.php" >CHANGE PASSWORD</a></li>';
                                 echo '<li id="SideMenuLogoutLI"><a id="SideMenuLogout" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Log out" href="Logout.php" >LOGOUT</a></li>';
                         ?>
                         
@@ -157,6 +158,8 @@
                 echo '<li><a href="ModifySubjects.php">Modify Subject</a></li>';
                 echo '<li class="divider"></li>';
                 echo '<li><a href="ViewStudentsList.php">View Students List</a></li>';
+                echo '<li class="divider"></li>';
+                echo '<li><a href="ChangePasswordRaj.php">Change Password</a></li>';
                 echo '<li class="divider"></li>';
             }
             echo      '<li><a href="logout.php">Logout</a></li>';

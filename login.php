@@ -119,17 +119,17 @@
 
 		<div class="row">
         
-			<form class="col s12 m6" action="" method="post">
+			<form class="col s12 m6" action="" method="post" autocomplete="off">
 		        <h1 style="margin-top: 75px;">  ACCOUNT LOGIN</h1>
 				<div class="column" style="margin: auto;">
 					<div class="input-field col s12 m6">
 						<i class="material-icons prefix">account_circle</i>
-						<input id="userid" type="text" name="userid" class="loginDetails" required/>
+						<input id="userid" type="text" name="userid" class="loginDetails" required autocomplete="off"/>
 						<label for="userid">ID</label>
 					</div>
 					<div class="input-field col s12 m6">
 						<i class="material-icons prefix">vpn_key</i>
-						<input id="pswrd" type="password" name="pswrd" class="loginDetails" required/>
+						<input id="pswrd" type="password" name="pswrd" class="loginDetails" required autocomplete="off"/>
 						<label for="pswrd">Password</label>
 					</div>
 				</div>

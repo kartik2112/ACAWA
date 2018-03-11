@@ -17,17 +17,31 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <?php include "CommonFiles/Menu.php"; ?>
         <title>Change Password</title>
         <?php include("CommonFiles/CommonHead.php");?>
+        <script>
+            $(document).ready(function(){
+                $(".newPwdss").change(function(){
+                    console.log("Triggered");
+                    if($("#cnpwd").val() != "" && $("#npwd").val() != "" && $("#npwd").val() != $("#cnpwd").val()){
+                        $(".newPwdss").addClass("invalid");
+                        alert("Passwords don't match!");
+                    }
+                    else{
+                        $(".newPwdss").removeClass("invalid");
+                    }
+                });
+            });
+        </script>
     </head>
     
     <body>
+        <?php include "CommonFiles/Menu.php"; ?>
         <div class="card-panel red accent-2" style="text-align: center" >CHANGE CURRENT PASSWORD</div>
         <form method="post" action="" style="width:400px; margin:0 auto;">
                 Current password : <br> <input  style="text-align: center" name="cpwd" type="password" required><br>
-                New password     : <br> <input style="text-align: center" name="npwd" type="password" required><br>
-                Confirm password : <br> <input style="text-align: center" name="cnpwd" type="password" required><br>
+                New password     : <br> <input style="text-align: center" id="npwd" name="npwd" class="newPwdss" type="password" required><br>
+                Confirm password : <br> <input style="text-align: center" id="cnpwd" name="cnpwd" class="newPwdss" type="password" required><br>
                 <button class="btn waves-effect waves-light" type="submit" name="action" style="margin: auto">SUBMIT</button>
         </form>
  
@@ -45,7 +59,7 @@
                             $sqlUpdate = "UPDATE User SET pwd = '".md5($_POST['npwd'])."' WHERE u_name = '".$_SESSION['userid']."'"; 
                             if(mysqli_query($conn,$sqlUpdate)){
                                 echo '<script>alert("password changed successfully! Please login using new password");</script>';
-                                echo '<script>window.location = "/logout.php";</script>';
+                                echo '<script>window.location = "/ACAWA/logout.php";</script>';
                             }   
                         }
                      }

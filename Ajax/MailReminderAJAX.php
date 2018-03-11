@@ -72,6 +72,7 @@
 
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .="From:ACAWA Admin \r\n";
 
     //$mailflag=mail($row_users['u_name']."@somaiya.edu",$subject[$_POST['templateID']],$template[$_POST['templateID']],$headers);
     $mailflag=TRUE;

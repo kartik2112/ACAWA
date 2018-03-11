@@ -63,6 +63,7 @@
                                                     '</html>';
                         $headers = "MIME-Version: 1.0" . "\r\n";
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                        $headers .="From:ACAWA Admin \r\n";
 
                         mail($u_name."@somaiya.edu","Password Reset!",$content,$headers);
                         //echo '<script>window.location = "/ResetPwdRaj.php";</script>';
