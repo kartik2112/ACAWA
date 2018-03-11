@@ -43,7 +43,7 @@ session_start();
         </div>
         <div class="section white">
             <div class="row container">
-                <h4 class="blue-text text-darken-3 lighten-3" style="line-height: 60px">Web Technology Project 2016<br/>Roll Nos. 1411104, 1411113</h4>
+                <h4 class="blue-text text-darken-3 lighten-3" style="line-height: 60px">Advanced Internet Technology Project 2018<br/>Roll Nos. 1411104, 1411113</h4>
             </div>
         </div>
         <div class="parallax-container" style="margin-top: -50px;">
@@ -52,7 +52,8 @@ session_start();
         <div class="section white">
             <div class="row container">
                 <h2 class="blue-text text-darken-3 lighten-3" style="line-height: 60px">Where we are...</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.787357038169!2d72.897633414515!3d19.073084687089548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c627a20bcaa9%3A0xb2fd3bcfeac0052a!2sK.J.+Somaiya+College+Of+Engineering!5e0!3m2!1sen!2sin!4v1520668429639" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.787357038169!2d72.897633414515!3d19.073084687089548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c627a20bcaa9%3A0xb2fd3bcfeac0052a!2sK.J.+Somaiya+College+Of+Engineering!5e0!3m2!1sen!2sin!4v1520668429639" 
+                    frameborder="0" style="border:0;width:100%;height:60vh;" allowfullscreen></iframe>
             </div>
         </div>
       
