@@ -26,9 +26,11 @@
                     if($("#cnpwd").val() != "" && $("#npwd").val() != "" && $("#npwd").val() != $("#cnpwd").val()){
                         $(".newPwdss").addClass("invalid");
                         alert("Passwords don't match!");
+                        $("#pwdChangeBtn").attr("disabled","disabled");
                     }
                     else{
                         $(".newPwdss").removeClass("invalid");
+                        $("#pwdChangeBtn").removeAttr("disabled");
                     }
                 });
             });
@@ -42,7 +44,7 @@
                 Current password : <br> <input  style="text-align: center" name="cpwd" type="password" required><br>
                 New password     : <br> <input style="text-align: center" id="npwd" name="npwd" class="newPwdss" type="password" required><br>
                 Confirm password : <br> <input style="text-align: center" id="cnpwd" name="cnpwd" class="newPwdss" type="password" required><br>
-                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin: auto">SUBMIT</button>
+                <button class="btn waves-effect waves-light" type="submit" id="pwdChangeBtn" name="action" style="margin: auto">SUBMIT</button>
         </form>
  
         <?php
