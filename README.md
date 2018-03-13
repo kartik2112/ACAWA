@@ -1,56 +1,21 @@
-This is the source code. You can use it locally to experiment with AT.
+# ACAWA (Audit Course Allotment Web Application)
 
-## How to experiment
+This can be used for allotting audit courses to students considering their order of preferences.
 
-If you want to try AT,
+## Key frameworks used
 
-- clone this repository or [download](http://ariatemplates.com/download) the development version
-- or [download](http://ariatemplates.com/download) the production version
+* PHP Excel used for handling excel files uploaded to server. [PHP Excel Github Repo](https://github.com/PHPOffice/PHPExcel)
+* Materialize framework used for styling of the entire website. [Materialize CSS Official Site](http://materializecss.com/)
+* Flip clock used for countdown timer. [Flip Clock Github Repo](https://github.com/objectivehtml/FlipClock)
+* RSS used: [Education India, World, Top Education News - Times of India RSS Feed](https://timesofindia.indiatimes.com/rssfeeds/913168846.cms)
+* JQuery AJAX used for handling AJAX requests. MailReminder uses this and some extra logic for handling unexpected internet disconnection while the requests are sent. After detecting this disconnection, periodically the network will be checked and then after connection is established, the pending requests are resent.
 
-### Production Version
+## Screenshots
 
-This is a pre-packaged version of AT where files are minified and grouped together in bundles.
-To get started, copy the `aria` folder to the root of your web server and include both the framework bootstrap and the skin in your HTML page:
+![SS 1](https://github.com/kartik2112/ACAWA/blob/master/Screenshots/SS1.PNG)
 
-    <script type="text/javascript" src="/aria/ariatemplates-1.2.0.js"></script>
-    <script type="text/javascript" src="/aria/css/atskin-1.2.0.js"></script>
+![SS 2](https://github.com/kartik2112/ACAWA/blob/master/Screenshots/SS2.PNG)
 
-### Development Version
+![SS 3](https://github.com/kartik2112/ACAWA/blob/master/Screenshots/SS3.PNG)
 
-This is the development, un-minified, un-packaged version of the framework.
-To get started, copy the `aria` folder to the root of your web server and include the bootstrap file in your HTML page:
-
-    <script type="text/javascript" src="/aria/bootstrap.js"></script>
-
-### Using AT from NodeJS
-
-Issue `npm install ariatemplates` to grab the latest stable version from npm.
-Then use `require('ariatemplates')` to load the framework. This will create two global variables,
-`aria` and `Aria`. Some core functionalities will be preloaded, to use the others, you have to load them
-using `Aria.load`. That function expects a JSON object with `classes` node (`Array`), and optionally
-`oncomplete` and `onerror` callbacks.
-
-Below is a simple REPL excerpt to get started with:
-
-    $ npm install ariatemplates
-    ...
-    $ node
-    > require('ariatemplates')
-    > aria.utils.String.substitute('Hello %1', ['John'])
-    'Hello John'
-    > Aria.load({ classes : ["aria.utils.Math"] })
-    > aria.utils.Math.normalize(711, 0, 500)
-    500
-
-Alternatively, if you've cloned our GH repo and want to experiment with the code as you change it:
-
-    $ git clone https://github.com/ariatemplates/ariatemplates.git
-    ...
-    $ node
-    > require('./ariatemplates/src/aria/node.js')
-    ...
-
-### Learn more
-
-Head over to our [Hello World guide](http://ariatemplates.com/guides/hello/) to learn more.
-For any question, send us an email contact@ariatemplates.com
+![SS 4](https://github.com/kartik2112/ACAWA/blob/master/Screenshots/SS4.PNG)
