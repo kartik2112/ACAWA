@@ -2,6 +2,8 @@
 
 This can be used for allotting audit courses to students considering their order of preferences.
 
+This site can be viewed at: [ACAWA hosted on ByetHost](http://acawa.byethost3.com)
+
 ## Key frameworks used
 
 * PHP Excel used for handling excel files uploaded to server. [PHP Excel Github Repo](https://github.com/PHPOffice/PHPExcel)
