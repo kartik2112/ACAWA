@@ -44,10 +44,12 @@
                 Current password : <br> <input  style="text-align: center" name="cpwd" type="password" required><br>
                 New password     : <br> <input style="text-align: center" id="npwd" name="npwd" class="newPwdss" type="password" required><br>
                 Confirm password : <br> <input style="text-align: center" id="cnpwd" name="cnpwd" class="newPwdss" type="password" required><br>
-                <button class="btn waves-effect waves-light" type="submit" id="pwdChangeBtn" name="action" style="margin: auto">SUBMIT</button>
+                <button class="btn waves-effect waves-light disabled" disabled type="submit" id="pwdChangeBtn12" name="action" style="margin: auto">SUBMIT</button>
         </form>
+
+        <h3>This is disabled for obvious reasons!</h3>
  
-        <?php
+        <!-- <?php
             if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cpwd'])  && isset($_POST['npwd'])  && isset($_POST['cnpwd']) )
                 {
                     $sql="select * from User where u_name='".$_SESSION['userid']."' and pwd='".md5($_POST['cpwd'])."'";
@@ -69,6 +71,6 @@
                          echo '<script>alert("Current password incorrect!");</script>';
                      }
                 }
-        ?>
+        ?> -->
     </body>
 </html>
