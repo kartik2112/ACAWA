@@ -1,0 +1,364 @@
+body {
+    background-color : skyblue;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/*container{
+    margin-top: 64px;
+}*/
+
+form,#ResultsDiv,h3{
+    text-align: center;
+    margin: auto;
+}
+
+table,th,td {
+    border: 3px solid skyblue;
+    
+}
+th,td {
+    padding: 5px;
+    text-align: center;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #00eaff;
+}
+table#t01 tr:nth-child(odd) {
+   background-color: skyblue;
+}
+table#t01 th {
+    background-color: blue;
+    color: white;
+}
+table tr td a.hyperlink:hover{
+    color: #0206b4;
+}
+
+
+
+
+div.myTableOuter{
+    overflow-x: scroll;
+}
+
+table.myTable{
+    border-collapse: collapse;
+    border: 0px;
+    width: 100%;
+}
+
+table.myTable>th {
+    text-align: left;
+    padding: 8px!important;
+    color: #043cc1;
+}
+
+table.myTable>td {
+    text-align: left;
+    padding: 8px!important;
+    color: #043cc1;
+}
+
+table.myTable td.CentreThis{
+    text-align: center;
+}
+
+table.myTable th.CentreThis{
+    text-align: center;
+}
+
+table.myTable tr:nth-child(even){
+    background-color: #c5e8ff;
+}
+
+table.myTable tr:nth-child(odd){
+    background-color: #eff8ff;
+}
+
+table.myTable th{
+    background-color: #008eeb;
+    color: white;
+}
+
+table.myTable th{
+    border-width: 3px 0px 0px 2px;
+}
+
+table.myTable tr.MoreDetailsHover:not(.myTableHeaderRow):hover{
+    background-color: #79deff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+table.myTable tr td.AddSubjectTD{
+    text-align: center;
+}
+
+table.myTable tr td.AddSubjectTD:hover{
+    background-color: #0082ff;
+    color: white;
+    transition: background-color 0.3s,color 0.3s;
+}
+
+
+
+
+/* Overriding form control default colors */
+.input-field label {
+    color: #0030ec!important;
+}
+.input-field input[type=text]:focus + label {
+    color: #0030ec!important;
+}
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #0030ec!important;
+    box-shadow: 0 1px 0 0 #0030ec!important;
+}
+.input-field input[type=number]:focus {
+    border-bottom: 1px solid #0030ec!important;
+    box-shadow: 0 1px 0 0 #0030ec!important;
+}
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #0030ec!important;
+    box-shadow: 0 1px 0 0 #0030ec!important;
+}
+.input-field input[type=file]:focus {
+    border-bottom: 1px solid #0030ec!important;
+    box-shadow: 0 1px 0 0 #0030ec!important;
+}
+.input-field input[type=date]:focus {
+    border-bottom: 1px solid #0030ec!important;
+    box-shadow: 0 1px 0 0 #0030ec!important;
+}
+.input-field textarea:focus {
+    border-bottom: 1px solid #0030ec!important;
+    box-shadow: 0 1px 0 0 #0030ec!important;
+}
+.input-field .prefix.active {
+    color: #0030ec!important;
+}
+
+ul.accordionMyStyle li{
+    background-color: #d3edff; 
+}
+
+i.deleteOption{
+    color: #ff0000;
+}
+
+i.deleteOption:hover{  
+    background-color: #ff0000;  
+    color: white;    
+    cursor: pointer;
+    transition: background-color 0.5s,color 0.5s;
+}
+
+.charts{
+    min-width: 100%;
+}
+
+.chartsSlidable{
+    margin: auto;
+}
+
+@media only screen and (max-width: 320px){
+    #deadline_countdown{
+        zoom: 50%;
+    }
+    #submission_start_countdown{
+        zoom: 50%;
+    }
+    #deadline_start_countdown{
+        zoom: 50%;
+    }
+    .templateImages{
+        zoom: 30%;
+    }
+    .chartsSlidable{
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width:466px){
+    #deadline_countdown{
+        zoom: 50%;
+    }
+    #submission_start_countdown{
+        zoom: 50%;
+    }
+    #deadline_start_countdown{
+        zoom: 50%;
+    }
+    .templateImages{
+        zoom: 50%;
+    }
+    .chartsSlidable{
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 467px) and (max-width:499px){
+    #deadline_countdown{
+        zoom: 50%;
+    }
+    #submission_start_countdown{
+        zoom: 50%;
+    }
+    #deadline_start_countdown{
+        zoom: 50%;
+    }
+    .templateImages{
+        zoom: 60%;
+    }
+    .chartsSlidable{
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 639px){
+    #deadline_countdown{
+        zoom: 50%;
+    }
+    #submission_start_countdown{
+        zoom: 50%;
+    }
+    #deadline_start_countdown{
+        zoom: 50%;
+    }
+    .templateImages{
+        zoom: 70%;
+    }
+    .chartsSlidable{
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 834px){
+    #deadline_countdown{
+        zoom: 70%;
+    }
+    #submission_start_countdown{
+        zoom: 50%;
+    }
+    #deadline_start_countdown{
+        zoom: 50%;
+    }
+    .templateImages{
+        zoom: 80%;
+    }
+    .chartsSlidable{
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 835px) and (max-width: 992px){
+    #deadline_countdown{
+        zoom: 100%;
+    }
+    #submission_start_countdown{
+        zoom: 60%;
+    }
+    #deadline_start_countdown{
+        zoom: 60%;
+    }
+    .templateImages{
+        zoom: 100%;
+    }
+    .chartsSlidable{
+        width: 80%;
+    }
+}
+
+
+@media only screen and (min-width: 993px){
+    #deadline_countdown{
+        zoom: 100%;
+    }
+    #submission_start_countdown{
+        zoom: 70%;
+    }
+    #deadline_start_countdown{
+        zoom: 70%;
+    }
+    .templateImages{
+        zoom: 100%;
+    }
+    .chartsSlidable{
+        width: 80%;
+    }
+}
+
+
+
+.ProgressBar
+{
+    background-color: rgb(46, 122, 0);
+    background-color: rgba(69, 182, 0, 0.86);
+    position: relative;
+    background: -moz-linear-gradient(0deg,rgb(53, 130, 6),rgb(31, 85, 0));  
+    background: -o-linear-gradient(0deg,rgb(53, 130, 6),rgb(31, 85, 0));
+    background: -webkit-linear-gradient(0deg,rgb(53, 130, 6),rgb(31, 85, 0));
+    background: linear-gradient(0deg,rgb(53, 130, 6),rgb(31, 85, 0));
+            
+    background-image: linear-gradient(
+        -45deg, 
+        rgba(46, 122, 0,0.7) 25%, 
+        rgba(69, 182, 0, 0.86) 25%, 
+        rgba(69, 182, 0, 0.86) 50%, 
+        rgba(46, 122, 0,0.7) 50%, 
+        rgba(46, 122, 0,0.7) 75%, 
+        rgba(69, 182, 0, 0.86) 75%, 
+        rgba(69, 182, 0, 0.86)
+    );
+    z-index: 1;
+    background-size: 50px 50px;
+    animation: move 1s linear infinite;
+     
+    overflow: hidden;
+}
+        
+        
+.ProgressBarDiv{
+            
+    border-radius: 20px;
+    border: 3px solid rgba(143, 143, 143, 0.76);
+    overflow: hidden!important;
+    position: relative;
+            
+    background-color: rgba(217, 217, 217, 0.76);
+            
+            
+    background: -moz-linear-gradient(0deg,rgba(255, 255, 255, 0.19),rgba(176, 176, 176, 0.48));         
+    background: -webkit-linear-gradient(0deg,rgba(255, 255, 255, 0.19),rgba(176, 176, 176, 0.48));
+    background: -o-linear-gradient(0deg,rgba(255, 255, 255, 0.19),rgba(176, 176, 176, 0.48));
+    background: linear-gradient(0deg,rgba(255, 255, 255, 0.19),rgba(176, 176, 176, 0.48));
+        /*Remove if gradient is not wanted*/   
+             
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+    background-position: 50px 50px;
+    }
+}
+
+
+
+.UploadBtns{
+    margin: 15px!important;
+}
+
+.BlurredBGForPopup{
+    animation: blurIn 0.5s linear 1;
+    filter: blur(8px);
+}
+        
+@keyframes blurIn {
+    0% { filter: blur(0px); }
+    100% { filter: blur(8px); }
+}
