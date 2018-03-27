@@ -51,7 +51,8 @@
                 
                 if( !empty($_FILES['syllFileChange']['tmp_name']) && is_uploaded_file($_FILES['syllFileChange']['tmp_name']) ){
                     $syllFileTmp = $_FILES['syllFileChange']['tmp_name'];
-                    $syllFileExt=strtolower(end(explode('.',$_FILES['syllFileChange']['name'])));
+                    $str123 = explode('.',$_FILES['syllFileChange']['name']);
+                    $syllFileExt=strtolower(end($str123));
       
                     $syllFileExtensions= array("doc","docx","pdf");
       
@@ -73,7 +74,8 @@
                 
                 if( !empty($_FILES['thumbnailFileChange']['tmp_name']) && is_uploaded_file($_FILES['thumbnailFileChange']['tmp_name']) ){
                     $thumbnailFileTmp = $_FILES['thumbnailFileChange']['tmp_name'];
-                    $thumbnailFileExt=strtolower(end(explode('.',$_FILES['thumbnailFileChange']['name'])));
+                    $str123 = explode('.',$_FILES['thumbnailFileChange']['name']);
+                    $thumbnailFileExt=strtolower(end($str123));
       
                     $thumbnailFileExtensions= array("png","gif","jpg","jpeg");
       
@@ -117,7 +119,8 @@
 
                 if( !empty($_FILES['syllabusFileAdd']['tmp_name']) && is_uploaded_file($_FILES['syllabusFileAdd']['tmp_name']) ){
                     $syllFileTmp = $_FILES['syllabusFileAdd']['tmp_name'];
-                    $syllFileExt=strtolower(end(explode('.',$_FILES['syllabusFileAdd']['name'])));
+                    $str123 = explode('.',$_FILES['syllabusFileAdd']['name']);
+                    $syllFileExt=strtolower(end($str123));
       
                     $syllFileExtensions= array("doc","docx","pdf");
       
@@ -134,7 +137,8 @@
 
                 if( !empty($_FILES['thumbnailFileAdd']['tmp_name']) && is_uploaded_file($_FILES['thumbnailFileAdd']['tmp_name']) ){
                     $thumbnailFileTmp = $_FILES['thumbnailFileAdd']['tmp_name'];
-                    $thumbnailFileExt=strtolower(end(explode('.',$_FILES['thumbnailFileAdd']['name'])));
+                    $str123 = explode('.',$_FILES['thumbnailFileAdd']['name']);
+                    $thumbnailFileExt=strtolower(end($str123));
       
                     $thumbnailFileExtensions= array("png","jpg","gif","jpeg");
       

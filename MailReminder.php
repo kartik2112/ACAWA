@@ -275,6 +275,7 @@
         <?php
             }
             else if($phase==3 && $sortingPerformedStatus=="TRUE"){
+                $insertDateInMail=date("F jS, Y",strtotime($endDateFetched));
                 require("CommonFiles/MailTemplates.php");
         ?>
             <script>

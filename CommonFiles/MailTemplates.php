@@ -10,7 +10,7 @@ $PostScriptInMail = 'Test';
 $templateBody['Phase1Temp1']=       '<p>The link is now open to check out the audit course details for your semester.</p>'.
                                     '<p>Login with your SVVNetID and password as \'kjsce\' if you haven\'t changed it yet. If you haven\'t, please change it as soon as possible.</p>'.
                                     '<p><b>Use the following link to check the syllabus and other details of the audit courses offered in your semester:</b></p>'.
-                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/CourseDetails.php" target="_blank"><span>Click here</span></a></span></p>'.
+                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/ACAWA/CourseDetails.php" target="_blank"><span>Click here</span></a></span></p>'.
                                     '<p>The form will be available on '.$insertDateInMail.'</p>'.
                                     '<p>Remember the following while filling the form:</p>'.
                                     '<ul style="list-style-type: circle;">'.
@@ -43,7 +43,7 @@ $subject['Phase1Temp1']="Audit Course Syllabus";
 $templateBody['Phase2Temp1']=       '<p>The link is now open to fill out your choices for your desired audit course.</p>'.
                                     '<p>Login with your SVVNetID and password as \'kjsce\' if you haven\'t changed it yet. If you haven\'t, please change it as soon as possible.</p>'.
                                     '<p><b>Use the following link to fill out the choices:</b></p>'.
-                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/AuditCourseMakeChoices.php" target="_blank"><span>Click here</span></a></span></p>'.
+                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/ACAWA/AuditCourseMakeChoices.php" target="_blank"><span>Click here</span></a></span></p>'.
                                     '<p>The deadline for filling this form is '.$insertDateInMail.'</p>'.
                                     '<p>Remember the following while filling the form:</p>'.
                                     '<ul style="list-style-type: circle;">'.
@@ -76,7 +76,7 @@ $subject['Phase2Temp1']="Audit Course Choice Filling Started";
 $templateBody['Phase2Temp2']=       '<p><b>Please do not forget to fill out your choices for your desired audit course. The link is now open to fill out your choices for your desired audit course.</b></p>'.
                                     '<p>Login with your SVVNetID and password as \'kjsce\' if you haven\'t changed it yet. If you haven\'t, please change it as soon as possible.</p>'.
                                     '<p><b>Use the following link to fill out the choices:</b></p>'.
-                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/AuditCourseMakeChoices.php" target="_blank"><span>Click here</span></a></span></p>'.
+                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/ACAWA/AuditCourseMakeChoices.php" target="_blank"><span>Click here</span></a></span></p>'.
                                     '<p>The deadline for filling this form is '.$insertDateInMail.'</p>'.
                                     '<p>Remember the following while filling the form:</p>'.
                                     '<ul style="list-style-type: circle;">'.
@@ -109,7 +109,7 @@ $subject['Phase2Temp2']="Reminder to fill Audit Course Choices";
 $templateBody['Phase3Temp1']=       '<p><b>The results for the allotment of audit courses have been declared.</b></p>'.
                                     '<p>Login with your SVVNetID and password as \'kjsce\' if you haven\'t changed it yet. If you haven\'t, please change it as soon as possible.</p>'.
                                     '<p><b>Use the following link to check out which audit courses you and your friends have been allotted:</b></p>'.
-                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/Results.php" target="_blank"><span>Click here</span></a></span></p>'.
+                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/ACAWA/Results.php" target="_blank"><span>Click here</span></a></span></p>'.
                                     '<p>If you have not yet filled out your choices or have not been allotted any audit course, meet the requested person-in-charge for further details.</p>'.
                                     '<p>Have a nice day ahead.</p>';
 
@@ -136,7 +136,7 @@ $templateBody['Phase3Temp2']=       '<p><b>You have failed to submit your choice
                                     '<p>The results for the allotment of audit courses have been declared.</p>'.
                                     '<p>Login with your SVVNetID and password as \'kjsce\' if you haven\'t changed it yet. If you haven\'t, please change it as soon as possible.</p>'.
                                     '<p><b>Use the following link to check out which audit courses you and your friends have been allotted:</b></p>'.
-                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/Results.php" target="_blank"><span>Click here</span></a></span></p>'.
+                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/ACAWA/Results.php" target="_blank"><span>Click here</span></a></span></p>'.
                                     '<p><b>Meet the requested person-in-charge for further details.</b></p>'.
                                     '<p>Have a nice day ahead.</p>';
 $template['Phase3Temp2']='<!DOCTYPE html>'.
@@ -162,7 +162,7 @@ $templateBody['Phase3Temp3']=       '<p><b>You have not been allotted any audit 
                                     '<p>The results for the allotment of audit courses have been declared.</p>'.
                                     '<p>Login with your SVVNetID and password as \'kjsce\' if you haven\'t changed it yet. If you haven\'t, please change it as soon as possible.</p>'.
                                     '<p><b>Use the following link to check out which audit courses you and your friends have been allotted:</b></p>'.
-                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/Results.php" target="_blank"><span>Click here</span></a></span></p>'.
+                                    '<p><span style=""><a href="http://'.$_SERVER['HTTP_HOST'].'/ACAWA/Results.php" target="_blank"><span>Click here</span></a></span></p>'.
                                     '<p><b>Meet the requested person-in-charge for further details.</b></p>'.
                                     '<p>Have a nice day ahead.</p>';
 
